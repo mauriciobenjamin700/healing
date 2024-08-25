@@ -1,12 +1,21 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block "head" %}
+
+    <link rel="stylesheet" href="{% static 'users/css/users.css' %}">
+
+{% endblock %}
 
 {% block "body" %}
 
     <div class="containter-fluid">
 
-        <div class="row">
+        <div class="row" style="height: 100vh;">
+            
+            <!--Coluna da "Esquerda"-->
 
-            <div class="col-md d-flex justify-content-center">
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
 
                 <div class="cont-register">
 
@@ -15,7 +24,7 @@
 
                     <section class="cont-logo">
 
-                        <img class="logo" src="#">
+                        <img class="logo" src="{% static 'global/img/logo.png' %}">
                         <label class="text-logo">
                             HEALING
                         </label>
@@ -24,7 +33,7 @@
 
                     <hr>
 
-                    <form action="", method="post">
+                    <form action="{% url 'register' %}", method="POST">{% csrf_token %} <!--Validação do envio dos dados para o backend-->
 
                         <h2 class="fonte-destaquel">
                             Cadastre-se
@@ -55,7 +64,7 @@
                                     Senha
                                 </label>
 
-                                <input type="password" name="senha" class="form-control" placeholder="Digite sua senha">
+                                <input type="password" name="password" class="form-control" placeholder="Digite sua senha">
 
                             </div>
 
@@ -65,7 +74,7 @@
                                     Confirmar Senha
                                 </label>
 
-                                <input type="password" name="confirmar_senha" class="form-control" placeholder="Confirme sua senha">
+                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirme sua senha">
 
 
                             </div>
@@ -85,10 +94,11 @@
                 </div>
 
             </div>
+            
+            <!--Coluna da "Direita"-->
+            <div class="col-md-6 bg-main d-flex justify-content-center align-items-center">
 
-            <div class="col-md bg-main d-flex justify-content-center align-items-center">
-
-                <img src="#" alt="">
+                <img src="{% static 'users/img/art.jpg' %}" alt="Imagem descritiva" class="img-fluid">
 
             </div>
 

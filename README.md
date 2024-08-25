@@ -9,12 +9,12 @@ Este repositório se destida a construção de um sistema de agendamento de cons
 ## Fluxo de Estudos
 
 - Parei na Aula 1 aos 50:54 no primeiro dia
-- Paeri na Aula 1 aos 1:07:28 no segundo dia
+- Parei na Aula 1 aos 1:34:39 no segundo dia
 
 ## URLS Implementadas
 
 - [Cadastro de Usuários](http://127.0.0.1:8000/users/register/)
-- [Arquivos Estatícos](http://127.0.0.1:8000/static/test.txt)
+- [Arquivos Estatícos](http://127.0.0.1:8000/static/global/css/base.css)
 
 ## Material de Apoio
 
