@@ -9,101 +9,59 @@
 
 {% block "body" %}
 
-    <div class="containter-fluid">
+<div class="container" id="container">
 
-        <div class="row" style="height: 100vh;">
-            
-            <!--Coluna da "Esquerda"-->
-
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-
-                <div class="cont-register">
-
-                    <br>
-                    <br>
-
-                    <section class="cont-logo">
-
-                        <img class="logo" src="{% static 'global/img/logo.png' %}">
-                        <label class="text-logo">
-                            HEALING
-                        </label>
-
-                    </section>
-
-                    <hr>
-
-                    <form action="{% url 'register' %}", method="POST">{% csrf_token %} <!--Validação do envio dos dados para o backend-->
-
-                        <h2 class="fonte-destaquel">
-                            Cadastre-se
-                        </h2>
-
-                        <br>
-
-                        <label for="">
-                            Username
-                        </label>
-
-                        <input type="text" name="username" id="" class="form-control" placeholder="Username">
-
-                        <br>
-
-                        <label for="">
-                            E-mail
-                        </label>
-
-                        <input type="text" name="email" id="" class="form-control" placeholder="email@email.com">
-                        <br>
-
-                        <div class="row">
-
-                            <div class="col-md">
-
-                                <label for="">
-                                    Senha
-                                </label>
-
-                                <input type="password" name="password" class="form-control" placeholder="Digite sua senha">
-
-                            </div>
-
-                            <div class="col-md">
-
-                                <label for="">
-                                    Confirmar Senha
-                                </label>
-
-                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirme sua senha">
-
-
-                            </div>
-
-                        </div>
-
-                        <br>
-
-                        <input type="submit" value="Cadastrar" class="btn btn-sucess btn-dark-color">
-
-                        <a href="#" class="btn btn-dark-color-outline">
-                            Já possuo uma conta
-                        </a>
-
-                    </form>
-
-                </div>
-
-            </div>
-            
-            <!--Coluna da "Direita"-->
-            <div class="col-md-6 bg-main d-flex justify-content-center align-items-center">
-
-                <img src="{% static 'users/img/art.jpg' %}" alt="Imagem descritiva" class="img-fluid">
-
-            </div>
-
-        </div>
-
+    <div class="form-container register-container">
+      <form action="{% url 'register' %}" method="POST"> {% csrf_token %}
+        <h1>Cadastre-se </h1>
+        <input type="text" name="username" placeholder="Seu Nome">
+        <input type="email"  name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Senha">
+        <input type="password" name="confirm_password" placeholder="Confirme sua Senha">
+        <button>Cadastrar</button>
+      </form>
     </div>
+
+    <div class="form-container login-container">
+      <form action="#">
+        <h1>Login </h1>
+        <input type="email" placeholder="E-mail">
+        <input type="password" placeholder="Senha">
+        <div class="content">
+          <div class="checkbox">
+            <input type="checkbox" name="checkbox" id="checkbox">
+            <label>Lembrar</label>
+          </div>
+          <div class="pass-link">
+            <a href="#">Esqueceu sua senha?</a>
+          </div>
+        </div>
+        <button>Login</button>
+
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1 class="title">Olá <br> Seja bem vindo</h1>
+          <p>Se você já tem uma conta, faça seu login</p>
+          <button class="ghost" id="login">Login
+            <i class="lni lni-arrow-left login"></i>
+          </button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1 class="title">Primeira vez no site? <br> Junte-se a nós</h1>
+          <p>Se você não tem uma conta, Cadastre-se e use nosso sistema.</p>
+          <button class="ghost" id="register">Cadastrar-se
+            <i class="lni lni-arrow-right register"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="{% static 'users/js/users.js' %}"></script>
 
 {% endblock  %}

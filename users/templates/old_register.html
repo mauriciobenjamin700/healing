@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block "head" %}
+
+    <link rel="stylesheet" href="{% static 'users/css/users.css' %}">
+
+{% endblock %}
+
+{% block "body" %}
+
+    <div class="containter-fluid">
+
+        <div class="row" style="height: 100vh;">
+            
+            <!--Coluna da "Esquerda"-->
+
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+
+                <div class="cont-register">
+
+                    <br>
+                    <br>
+
+                    <section class="cont-logo">
+
+                        <img class="logo" src="{% static 'global/img/logo.png' %}">
+                        <label class="text-logo">
+                            HEALING
+                        </label>
+
+                    </section>
+
+                    <hr>
+
+                    <form action="{% url 'register' %}", method="POST">{% csrf_token %} <!--Validação do envio dos dados para o backend-->
+
+                        <h2 class="fonte-destaquel">
+                            Cadastre-se
+                        </h2>
+
+                        <br>
+
+                        <label for="">
+                            Username
+                        </label>
+
+                        <input type="text" name="username" id="" class="form-control" placeholder="Username">
+
+                        <br>
+
+                        <label for="">
+                            E-mail
+                        </label>
+
+                        <input type="text" name="email" id="" class="form-control" placeholder="email@email.com">
+                        <br>
+
+                        <div class="row">
+
+                            <div class="col-md">
+
+                                <label for="">
+                                    Senha
+                                </label>
+
+                                <input type="password" name="password" class="form-control" placeholder="Digite sua senha">
+
+                            </div>
+
+                            <div class="col-md">
+
+                                <label for="">
+                                    Confirmar Senha
+                                </label>
+
+                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirme sua senha">
+
+
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <input type="submit" value="Cadastrar" class="btn btn-sucess btn-dark-color">
+
+                        <a href="#" class="btn btn-dark-color-outline">
+                            Já possuo uma conta
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+            
+            <!--Coluna da "Direita"-->
+            <div class="col-md-6 bg-main d-flex justify-content-center align-items-center">
+
+                <img src="{% static 'users/img/art.jpg' %}" alt="Imagem descritiva" class="img-fluid">
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock  %}
