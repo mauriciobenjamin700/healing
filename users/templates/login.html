@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block "head" %}
+
+    <link rel="stylesheet" href="{% static 'users/css/users.css' %}">
+
+{% endblock %}
+
+{% block "body" %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md d-flex justify-content-center">
+                <div class="cont-register">
+                    <br>
+                    <br>
+                    <section class="cont-logo">
+                        <img class="logo" src="{% static 'geral/img/logo.jpg'}">
+                        <label class="text-logo">
+                            HEALING
+                        </label>
+                    </section>
+                    <hr>
+
+                    <form action="{% url 'login' %}" method="post">{% csrf_token %}
+                        <h2 class=""fonte-destaquel>
+                            Logar
+                            {% if messages %}
+                                <br>
+                                {% for message in messages %}
+                                    <section class="alert {{message.tags}}">
+                                        {{message}}
+                                    </section>
+                                {% endfor %}
+                            {% endif %}
+                            <br>
+                            <label for="">
+                                Username
+                            </label>
+                            <input type="text" name="username" id="" class="form-control" placeholder="Nome de Usuário">
+                            <br>
+
+                            <label for="">
+                                Senha
+                            </label>
+                            <input type="password" name="password" id="" class="form-control" placeholder="Senha">
+                            <br>
+
+                            <input type="submit" value="Logar" class="btn btn-sucess btn-dark-color">
+                            <a href="{% url 'login' %}" class btn btn-dark-color-outline>
+                                Não Possuo Conta
+                            </a> 
+                        </h2>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md bg-main d-flex justify-content-center align-items-center">
+                <img src="{% static 'users/img/art.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+{% endblock  %}

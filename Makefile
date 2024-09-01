@@ -1,4 +1,4 @@
-run: #Liga o Servidor
+start: #Liga o Servidor
 	@python3 manage.py runserver
 
 new-app: #Implementa no django um novo modulo "vulgo app"
