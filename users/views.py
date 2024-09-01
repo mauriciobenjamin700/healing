@@ -27,9 +27,12 @@ def register(request) -> HttpResponse:
                 confirm_password=request.POST.get("confirm_password")
             )
             
-            users = User.objects.filter(username=user.name)
-            if users.exists():
+            if User.objects.filter(username=user.name).exists():
+                
                 raise ValueError("Usuário já existe")
+            
+            if User.objects.filter(email=user.email).exists():
+                raise ValueError("E-mail já existe")
             
             User.objects.create_user(
                 username=user.name,
@@ -56,20 +59,29 @@ def login(request) -> HttpResponse:
                 email=request.POST.get("email"),
                 password=request.POST.get("password")
             )
-            
+            print("DESGRAÇA DE LINHA 59: ",user)
             user_on_db = auth.authenticate(
                 request,
-                username=user.email,  # auth.authenticate espera 'username' e 'password'
+                username=User.objects.get(email=user.email).username,  # Obter o username a partir do email
                 password=user.password
             )
+            print("DESGRAÇA DE LINHA 65: ",user_on_db)
+            if not user_on_db:
+                add_message(request, messages.ERROR, "E-Mail ou Senha incorretos")
+                return render(request, "register.html")
+                
+                
+            auth.login(request, user_on_db)
+            return redirect("/clients/home")
             
-            if user_on_db:
-                auth.login(request, user_on_db)
-                return redirect("/clients/home")
             
-            add_message(request, messages.ERROR, "Usuário ou senha incorretos")
-            return render(request, "register.html")
+            
 
         except Exception as e:
-            add_message(request, messages.ERROR, "Ocorreu um erro inesperado")
+            add_message(request, messages.ERROR, str(e))
             return render(request, "register.html")
+        
+
+def logout(request) -> HttpResponse:
+    auth.logout(request)
+    return redirect("/users/login/")

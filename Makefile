@@ -6,3 +6,6 @@ new-app: #Implementa no django um novo modulo "vulgo app"
 
 create-migrations: #Implementa no banco de dados do django as tabelas
 	@python3 manage.py migrate
+
+clean-users:
+	@python3 manage.py clear_users
