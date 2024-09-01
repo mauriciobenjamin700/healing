@@ -13,6 +13,7 @@ Este repositório se destida a construção de um sistema de agendamento de cons
 
 ## URLS Implementadas
 
+- [Zona Administrativa](http://127.0.0.1:8000/admin)
 - [Cadastro de Usuários](http://127.0.0.1:8000/users/register/)
 - [Arquivos Estatícos](http://127.0.0.1:8000/static/global/css/base.css)
 

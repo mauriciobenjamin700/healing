@@ -2,3 +2,25 @@
 venv
 
 *.pyc
+
+# Arquivos Que o Usuário da Upload
+/media/doctors/medical_identity/*.png
+/media/doctors/medical_identity/*.jpg
+/media/doctors/medical_identity/*.jpeg
+/media/doctors/medical_identity/*.PNG
+/media/doctors/medical_identity/*.JPG
+/media/doctors/medical_identity/*.JPEG
+
+/media/doctors/profiles/*.png
+/media/doctors/profiles/*.jpg
+/media/doctors/profiles/*.jpeg
+/media/doctors/profiles/*.PNG
+/media/doctors/profiles/*.JPG
+/media/doctors/profiles/*.JPEG
+
+/media/doctors/rgs/*.png
+/media/doctors/rgs/*.jpg
+/media/doctors/rgs/*.jpeg
+/media/doctors/rgs/*.PNG
+/media/doctors/rgs/*.JPG
+/media/doctors/rgs/*.JPEG
