@@ -22,3 +22,18 @@ kabum:
 	@find . -path "*/migrations/*.pyc"  -delete
 	@python3 manage.py makemigrations
 	@python manage.py migrate
+
+revive-django:
+	@rm poetry.lock 
+	@find . -name "__pycache__" -type d -exec rm -r {} +
+	@poetry install
+	@poetry show django
+	@poetry run python manage.py makemigrations
+	@poetry run python manage.py migrate
+
+#@rm poetry.lock: Remove o arquivo poetry.lock para garantir que todas as dependências sejam reinstaladas do zero.
+#@find . -name "__pycache__" -type d -exec rm -r {} +: Remove todos os diretórios __pycache__ para garantir que não haja arquivos de cache antigos.
+#@poetry install: Reinstala todas as dependências listadas no arquivo pyproject.toml.
+#@poetry show django: Verifica se o Django está instalado corretamente.
+#@poetry run python manage.py makemigrations: Cria novas migrações para todos os seus modelos.
+#@poetry run python manage.py migrate: Aplica as migrações para criar as tabelas no banco de dados.
