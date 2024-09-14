@@ -16,18 +16,15 @@
                   {% endfor %}
               </div>
           {% endif %}
-          <h1>Cadastre-se </h1>
-          <input type="text" name="username" placeholder="Seu Nome" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="password" name="password" placeholder="Senha" required>
-          <input type="password" name="confirm_password" placeholder="Confirme sua Senha" required>
+          <h1>Cadastre-se </h1> {# o conteudo aqui é um print do django, se você comentar de outro jeito o servidor cai #}
+          {# <p>{{detail}}</p> #}	
           <input type="text" name="crm" placeholder="CRM" required>
           <input type="text" name="name" placeholder="Nome Completo" required>
           <input type="text" name="cep" placeholder="CEP" required>
           <input type="text" name="street" placeholder="Rua" required>
           <input type="text" name="neiborhood" placeholder="Bairro" required>
           <input type="text" name="house_number" placeholder="Número da Casa" required>
-          <label for="rg_image">Imagem do RG</label>
+          <label for="rg_image">RG</label>
           <input type="file" name="rg_image" required>
           <label for="medical_identity">Identidade Médica</label>
           <input type="file" name="medical_identity" required>

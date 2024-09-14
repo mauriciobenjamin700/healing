@@ -10,6 +10,7 @@ Este repositório se destida a construção de um sistema de agendamento de cons
 
 - Parei na Aula 1 aos 50:54 no primeiro dia
 - Parei na Aula 1 aos 1:34:39 no segundo dia
+- Parei na Aula 1 aos 2:49:00 no terceiro dia
 
 ## URLS Implementadas
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 
-def register(request):
+def doctor_register(request):
     if request.method == "GET":
-        return render(request, "doctor_register.html")
+        detail = "1"
+        return render(request, "doctor_register.html", context={"detail": detail})
