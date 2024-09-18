@@ -1,3 +1,10 @@
+"""
+- Tables:
+    - Category
+    - Doctor
+
+"""
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -10,6 +17,22 @@ class Category(models.Model):
         return self.name
     
 class Doctor(models.Model):
+    """
+    - crm: CharField
+    - name: CharField
+    - cep: CharField
+    - street: CharField
+    - neiborhood: CharField
+    - house_number: CharField
+    - rg_image: ImageField
+    - medical_identity - ImageField
+    - profile_image: ImageField
+    - description: TextField
+    - consultation_price: FloatField
+    - user: ForeignKey User
+    - category: ForeignKey Category
+    
+    """
     crm = models.CharField(max_length=30)
     name = models.CharField(max_length=100)
     cep = models.CharField(max_length=15)
@@ -18,7 +41,7 @@ class Doctor(models.Model):
     house_number = models.CharField(max_length=10)
     rg_image = models.ImageField(upload_to='doctors/rgs')
     medical_identity = models.ImageField(upload_to='doctors/medical_identity')
-    profile_iage = models.ImageField(upload_to='doctors/profiles')
+    profile_image = models.ImageField(upload_to='doctors/profiles')
     description = models.TextField()
     consultation_price = models.FloatField()
     
@@ -28,3 +51,7 @@ class Doctor(models.Model):
     
     def __str__(self) -> str:
         return self.user.username
+    
+    
+def is_doctor(request):
+    return Doctor.objects.filter(user=request.user).exists()

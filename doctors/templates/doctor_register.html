@@ -8,7 +8,7 @@
 {% block "body" %}
 <div class="container" id="container">
   <div class="form-container register-container">
-      <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+      <form action="{% url 'doctor_register' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
           {% if messages %}
               <div id="messages" style="display: none;">
                   {% for message in messages %}
@@ -28,15 +28,19 @@
           <input type="file" name="rg_image" required>
           <label for="medical_identity">Identidade Médica</label>
           <input type="file" name="medical_identity" required>
-          <label for="profile_iage">Foto de Perfil</label>
-          <input type="file" name="profile_iage" required>
-          <textarea name="description" placeholder="Descrição" required></textarea>
-          <input type="number" step="0.01" name="consultation_price" placeholder="Preço da Consulta" required>
+          <label for="profile_image">Foto de Perfil</label>
+          <input type="file" name="profile_image" required>
+
+          
           <select name="category" required>
+
               {% for category in categories %}
                   <option value="{{ category.id }}">{{ category.name }}</option>
               {% endfor %}
+
           </select>
+          <textarea name="description" placeholder="Descrição" required></textarea>
+          <input type="number" step="0.01" name="consultation_price" placeholder="Preço da Consulta" required>
           <button type="submit">Cadastrar</button>
       </form>
   </div>

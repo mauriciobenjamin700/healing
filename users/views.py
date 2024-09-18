@@ -72,8 +72,8 @@ def login(request) -> HttpResponse:
                 
                 
             auth.login(request, user_on_db)
-            return redirect("/clients/home")
-            
+            #return redirect("/clients/home")
+            return redirect("/doctors/doctor_register")
             
             
 
